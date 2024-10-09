@@ -4,6 +4,7 @@ const cardWrapper = document.querySelector('.card-wrapper');
 async function deFetch() {
   const response = await fetch('https://v2.api.noroff.dev/rainy-days');
   const productsData = await response.json();
+  console.log(productsData)
   return productsData.data;
 }
 
@@ -16,7 +17,18 @@ document.addEventListener("DOMContentLoaded", async () => {
   } finally {
     console.log('success');
   }
+
+  function filterProducts(products, selectedGender) {
+  // Filter products based on the selected gender
+  const filteredProducts = products.filter(product => {
+    return selectedGender === 'all' || product.gender === selectedGender;
+  });
+
+  
+  createCards(filteredProducts);
+}
 });
+
 
 
 
