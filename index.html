@@ -25,19 +25,33 @@
 
     <div class="grid_layout">
         <div class="filter">
-            <select id="gender-filter">
-                <option value="all">All</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="onSale">On Sale</option>
-                <option value="notOnSale">Not on Sale</option>
-                <option value="favorite">Favorites</option>
-                <option value="notFavorite">Not Favorites</option>
-            </select>
+
+            <ul id="filter-list">
+                <li>
+                    <input type="radio" name="filter" id="all-products" class="filter-item" checked>
+                    <label for="all-products">All Products</label>
+                </li>
+                <li>
+                    <input type="radio" name="filter" id="male-products" class="filter-item">
+                    <label for="male-products">Male Products</label>
+                </li>
+                <li>
+                    <input type="radio" name="filter" id="female-products" class="filter-item">
+                    <label for="female-products">Female Products</label>
+                </li>
+                <li>
+                    <input type="radio" name="filter" id="onSale-products" class="filter-item">
+                    <label for="onSale-products">On Sale Products</label>
+                </li>
+            </ul>
         </div>
+
+
+
+        <div class="card-wrapper"></div>
+
         <main>
             <section>
-                <h1>hei</h1>
                 <div class="card-wrapper">
                 </div>
             </section>
