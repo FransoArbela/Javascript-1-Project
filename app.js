@@ -78,6 +78,11 @@ function createCards(products) {
     title.textContent = product.title;
     card.appendChild(title);
 
+    // Create a link element
+    const link = document.createElement('a');
+    link.href = `https://v2.api.noroff.dev/rainy-days/${product.id}`;
+    link.className = 'product-link'; 
+
     // Create price tag, showing discounted price
     const priceTag = document.createElement('p');
     priceTag.className = 'price';
@@ -96,7 +101,10 @@ function createCards(products) {
     addTocartBtn.innerHTML = '<i class="fa-solid fa-basket-shopping" style="color: #ededed;"></i> Add to cart';
     card.appendChild(addTocartBtn);
 
-    // Append card to card wrapper
-    cardWrapper.appendChild(card);
+    // Append the card to the dynamic link
+    link.appendChild(card);
+
+    // Append the link to the card wrapper
+    cardWrapper.appendChild(link);
   });
 };
