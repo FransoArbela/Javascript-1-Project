@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     maleProd.addEventListener('change', () => filterProducts(products));
     femaleProd.addEventListener('change', () => filterProducts(products));
     onSaleProd.addEventListener('change', () => filterProducts(products));
-    favProd.addEventListener('change', () => filterProducts(products));
 
   } catch (error) {
     console.log(error);
@@ -57,6 +56,7 @@ function filterProducts(products) {
   createCards(filteredProducts); // Re-render filtered products
 }
 
+// ////////////////////// create cards /////////////////////////////////////////////
 function createCards(products) {
   cardWrapper.innerHTML = ''; // Clear previous content
 
@@ -80,18 +80,21 @@ function createCards(products) {
 
     // Create a link element
     const link = document.createElement('a');
-    link.href = `https://v2.api.noroff.dev/rainy-days/${product.id}`;
+    link.href = `pages/product.html?id=${product.id}`;
+
     link.className = 'product-link'; 
+
+
 
     // Create price tag, showing discounted price
     const priceTag = document.createElement('p');
     priceTag.className = 'price';
     if (product.onSale) {
       priceTag.innerHTML = `
-        <span id="discounted">${product.discountedPrice}€</span> 
+        <span id="discounted">€${product.discountedPrice}</span> 
         <span class="original-price">(Discounted from <del>${product.price}€</del>)</span>`;
     } else {
-      priceTag.textContent = `${product.price}€`;
+      priceTag.textContent = `€${product.price}`;
     }
     card.appendChild(priceTag);
 
