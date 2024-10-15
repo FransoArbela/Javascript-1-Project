@@ -7,6 +7,7 @@ const productPrice = document.querySelector('#price');
 const productSize = document.querySelector('.size');
 const productColor = document.querySelector('.colors');
 const productFavorite = document.querySelector('.favorite');
+const cartButtonCounter = document.querySelector('#counter');
 
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -91,16 +92,37 @@ async function fetchProductDetails(productId) {
         button.textContent = sizeValue;
         button.className = 'size-button';
 
+
+
         button.addEventListener('click', function() {
-      console.log(`Size ${sizeValue} selected`);
+
+        const allButtons = document.querySelectorAll('.size-button');
+
+        if (button.classList.contains('isClicked')) {
+        button.classList.remove('isClicked');
+
+        console.log('remove',button);
+
+        } else {
+        allButtons.forEach(btn => btn.classList.remove('isClicked'));
+        button.classList.add('isClicked');
+
+        console.log(button);
+    }
     });
     productSize.appendChild(button);
     });
+
 
     // add to cart button
     const addTocartBtn = document.createElement('button');
     addTocartBtn.className = 'add-to-cart';
     addTocartBtn.innerHTML = '<i class="fa-solid fa-basket-shopping" style="color: #ededed;"></i> Add to cart';
+    addTocartBtn.addEventListener('click', function(){
+      cartCounter = document.createElement('span');
+      cartCounter.id = 'cart-counter';
+      cartButtonCounter.appendChild(cartCounter);
+    })
     productDetails.appendChild(addTocartBtn);
 
   } catch (error) {
