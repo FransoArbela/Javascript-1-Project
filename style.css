@@ -12,7 +12,7 @@
 
 body {
     font-family: var(--p-font-language);
-
+    position: relative;
 }
 
 :root {
@@ -435,16 +435,67 @@ menu li {
 }
 
 .cart {
-    width: 20rem;
+    width: 25rem;
     min-height: 100vh;
-    background-color: rgb(151, 151, 151);
-    position: absolute;
+    background-color: rgb(255, 255, 255);
     right: 0;
     top: 0rem;
-    box-shadow: 5px 5px 18px -6px rgba(166, 166, 166, 0.89);
+    box-shadow: -22px 10px 43px -31px rgba(0, 0, 0, 0.75);
     z-index: 2;
     padding: 1rem;
-    display: none;
+    display: block;
+    position: fixed;
+}
+
+.cart button {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: rgba(0, 0, 0, 0.069) 1px solid;
+    border-radius: 50%;
+    position: absolute;
+    right: 1rem;
+    cursor: pointer;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+}
+
+.cart button:hover {
+    background-color: #e8e8e8;
+    box-shadow: inset 0px 0px 5px 0px rgba(215, 215, 215, 0.1);
+}
+
+hr {
+    margin-bottom: 1rem;
+}
+
+.cart h3 {
+    position: absolute;
+    top: 1.5rem;
+}
+
+.cart .product-wrapper {
+    position: absolute;
+    top: 6rem;
+    background-color: white;
+    width: 90%;
+}
+
+.cart .selected-product {
+    display: flex;
+    margin-bottom: 1rem;
+    background-color: rgb(238, 255, 218);
+
+}
+
+
+/* popup cart */
+.cartBackgr {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(63, 111, 92, 0.236);
+    z-index: 1;
+    position: fixed;
+    top: 0rem;
 }
 
 .isClicked {
@@ -470,15 +521,8 @@ menu li {
     font-size: 12px;
     font-weight: bold;
     display: none;
-    /* Initially hidden if no products in cart */
 }
 
 .cart-count.visible {
     display: inline-block;
-}
-
-/* popup cart */
-.selected-product {
-    display: flex;
-    background-color: white;
 }

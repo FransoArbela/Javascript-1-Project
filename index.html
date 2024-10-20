@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/logo.svg" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+
     <title>Home</title>
 </head>
 
@@ -22,13 +25,27 @@
     </header>
 
     <div class="cart">
+        <button type="button">X</button>
         <h3>Aricle added to your cart!</h3>
-        <div class="selected-product">
-            <img src="img/mens-jacket.png" alt="" width="100px">
-            <div class="selected-product-details">
-                <h4 id="price">price</h4>
-                <h5 id="product-amount">Amount: 1</h5>
-                <h5 id="color">red</h5>
+        <div class="product-wrapper">
+            <div class="selected-product">
+                <img src="img/mens-jacket.png" alt="" width="100px">
+                <div class="selected-product-details">
+                    <h5 id="cart-title">mens-jacket</h5>
+                    <h4 id="cart-price">price</h4>
+                    <h5 id="cart-product-amount">Amount: 1</h5>
+                    <h5 id="cart-color">red</h5>
+                </div>
+            </div>
+            <hr>
+            <div class="selected-product">
+                <img src="img/mens-jacket.png" alt="" width="100px">
+                <div class="selected-product-details">
+                    <h5 id="cart-title">mens-jacket</h5>
+                    <h4 id="price">price</h4>
+                    <h5 id="product-amount">Amount: 1</h5>
+                    <h5 id="color">red</h5>
+                </div>
             </div>
         </div>
     </div>
@@ -71,7 +88,6 @@
         </main>
     </div>
     <script src="https://kit.fontawesome.com/553a084866.js" crossorigin="anonymous"></script>
-    <script src="app.js"></script>
 </body>
 
 

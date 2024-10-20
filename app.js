@@ -104,12 +104,26 @@ function createCards(products) {
     addTocartBtn.className = 'basket-btn';
     addTocartBtn.innerHTML = '<i class="fa-solid fa-basket-shopping" style="color: #ededed;"></i> Add to cart';
     addTocartBtn.addEventListener('click', function (event){
+
       event.preventDefault();
+
       const cart = document.querySelector('.cart');
+
       cart.style.display = 'block';
-      
-      console.log('clicked!')
+      cart.style.position = 'fixed';
+
+      const cartBackgr = document.createElement('div');
+      cartBackgr.className = 'cartBackgr';
+      document.body.style.overflow = 'hidden';
+      document.body.appendChild(cartBackgr);
+      cartBackgr.addEventListener('click', function (){
+      cart.style.display = 'none';
+      cartBackgr.style.display = 'none';
+      document.body.style.overflow = 'auto';
     })
+  })
+
+
     card.appendChild(addTocartBtn);
 
     // Append the card to the dynamic link
