@@ -23,7 +23,7 @@ body {
 
 /* grid layout */
 .grid_layout {
-    max-width: 1553px;
+    max-width: 1253px;
     margin: 5rem auto;
     display: grid;
     grid-template-columns: 20% 80%;
@@ -435,14 +435,16 @@ menu li {
 }
 
 .cart {
-    width: 15rem;
-    height: 30rem;
-    background-color: rgb(243, 243, 243);
+    width: 20rem;
+    min-height: 100vh;
+    background-color: rgb(151, 151, 151);
     position: absolute;
-    right: 2rem;
-    top: 6rem;
+    right: 0;
+    top: 0rem;
     box-shadow: 5px 5px 18px -6px rgba(166, 166, 166, 0.89);
     z-index: 2;
+    padding: 1rem;
+    display: none;
 }
 
 .isClicked {
@@ -473,4 +475,10 @@ menu li {
 
 .cart-count.visible {
     display: inline-block;
+}
+
+/* popup cart */
+.selected-product {
+    display: flex;
+    background-color: white;
 }

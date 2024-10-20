@@ -122,7 +122,7 @@ async function fetchProductDetails(productId) {
       cartCounter = document.createElement('span');
       cartCounter.id = 'cart-counter';
       cartButtonCounter.appendChild(cartCounter);
-    })
+    });
     productDetails.appendChild(addTocartBtn);
 
   } catch (error) {

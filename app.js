@@ -1,3 +1,4 @@
+
 const cardWrapper = document.querySelector('.card-wrapper');
 
 async function deFetch() {
@@ -102,6 +103,13 @@ function createCards(products) {
     const addTocartBtn = document.createElement('button');
     addTocartBtn.className = 'basket-btn';
     addTocartBtn.innerHTML = '<i class="fa-solid fa-basket-shopping" style="color: #ededed;"></i> Add to cart';
+    addTocartBtn.addEventListener('click', function (event){
+      event.preventDefault();
+      const cart = document.querySelector('.cart');
+      cart.style.display = 'block';
+      
+      console.log('clicked!')
+    })
     card.appendChild(addTocartBtn);
 
     // Append the card to the dynamic link
