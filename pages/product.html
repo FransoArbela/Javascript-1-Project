@@ -7,10 +7,18 @@
     <link rel="shortcut icon" href="../img/logo.svg" type="image/x-icon">
     <link rel="stylesheet" href="../style.css">
     <script src="../app.js" defer></script>
+    <script src="../scripts/populateBasket.js" defer></script>
+    <script src="../scripts/product.js" defer></script>
+    <script src="../scripts/openBasket.js" defer></script>
+    <script src="https://kit.fontawesome.com/553a084866.js" defer crossorigin="anonymous"></script>
+
+
+
     <title>product</title>
 </head>
 
 <body>
+
     <header>
         <div id="logo">
             <img src="../img/logo.svg" alt="logo">
@@ -21,16 +29,27 @@
                 <li><a href="pages/contact.html">Contact & visit</a></li>
 
                 <li>
-                    <a href="../pages/contact.html">
-                        <i class="fa-solid fa-basket-shopping fa-xl" style="color: #000000;"></i>
-                        <div class="cart-icon">
-
-                            <span id="cart-count" class="cart-count">0</span>
-                        </div>
-                    </a>
+                    <div id="basket-icon">
+                        <a id="basket-pop-up">
+                            <i class="fa-solid fa-basket-shopping fa-xl" style="color: #000000;"></i>
+                            <span id="basket-counter"></span>
+                            <span id="basket-count"></span>
+                        </a>
+                    </div>
                 </li>
             </ul>
         </menu>
+        <div id="popup" class="checkout-basket">
+            <div class="popup-content">
+                <span class="close-btn" onclick="closePopup()">&times;</span>
+                <h1>Checkout</h1>
+
+                <!-- New container for displaying cart items -->
+                <div id="checkout-details"></div> <!-- This should be here -->
+
+                <button id="finalize-purchase">Finalize Purchase</button>
+            </div>
+        </div>
     </header>
 
     <div class="cart">
@@ -40,9 +59,7 @@
     <div class="product-display">
 
         <div class="product-container">
-            <!-- img container -->
-            <div class="product-img">
-            </div>
+
             <!-- favorite -->
             <div class="favorite">
             </div>
@@ -50,7 +67,9 @@
             <div class="product-details">
 
                 <!-- title and describtions -->
-                <div class="title-description"></div>
+                <div class="title-description">
+
+                </div>
 
                 <!-- price -->
                 <div id="price"></div>
@@ -64,15 +83,9 @@
                     <h4>Colors:</h4>
                 </div>
 
-                <!-- tags -->
-                <div class="tags">
-                    <h4>tags:</h4>
-                </div>
             </div>
         </div>
     </div>
-    <script src="https://kit.fontawesome.com/553a084866.js" crossorigin="anonymous"></script>
-    <script type="module" src="../product.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

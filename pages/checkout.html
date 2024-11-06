@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
+    <script src="../app.js" defer></script>
+    <script src="../scripts/populateBasket.js" defer></script>
+    <script src="../scripts/product.js" defer></script>
+    <script src="../scripts/openBasket.js" defer></script>
+    <script src="https://kit.fontawesome.com/553a084866.js" defer crossorigin="anonymous"></script>
+
+
+
+    <title>product</title>
+</head>
+
+<body>
+
+    <header>
+        <div id="logo">
+            <img src="../img/logo.svg" alt="logo">
+        </div>
+        <menu>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="pages/contact.html">Contact & visit</a></li>
+
+                <li>
+                    <div id="basket-icon">
+                        <a id="basket-pop-up">
+                            <i class="fa-solid fa-basket-shopping fa-xl" style="color: #000000;"></i>
+                            <span id="basket-counter"></span>
+                            <span id="basket-count"></span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </menu>
+        <div id="popup" class="checkout-basket">
+            <div class="popup-content">
+                <span class="close-btn" onclick="closePopup()">&times;</span>
+                <h1>Checkout</h1>
+
+                <!-- New container for displaying cart items -->
+                <div id="checkout-details"></div> <!-- This should be here -->
+
+                <button id="finalize-purchase">Finalize Purchase</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="cart">
+        <h1>cart</h1>
+    </div>
+
+    <div class="main-body">
+        <div class="checkout-container">
+
+            <div class="cart-product-container">
+                <h1>Your cart (2)</h1>
+
+                <!-- product -->
+                <div class="selected-product">
+                    <div class="order-img">
+                        <img id="chout-img" src="../img/mens-jacket.png" alt="">
+                    </div>
+                    <div class="selected-product-details">
+                        <h3 id="chout-title">THE TITLE OF THE PRODUCT</h3>
+                        <h4 id="chout-price">1699kr</h3>
+                            <h5 id="chout-color">Color: green</h5>
+                            <h5 id="chout-size">Size: XS</h5>
+                    </div>
+                    <div class="quanitity-x-wrapper">
+                        <select name="" id="chout-quantity">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        <button id="close">
+                            <i class="fa-solid fa-x"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="checkout-details">
+                <div id="amount">
+                    <p>Amount:</p>
+                    <p>2350kr</p>
+                </div>
+                <div id="shipping">
+                    <p>Shipping cost:</p>
+                    <p>0.00kr</p>
+                </div>
+                <div id="total">
+                    <p id="total-cost-bold">Total cost:</p>
+                    <p id="total-amount">2350kr</p>
+                </div>
+
+                <button id="purchase-btn">Confirm</button>
+                <div class="payment-methods-accepted">
+                    <p>Payment methods accepted</p>
+                    <div class="payment-methods">
+                        <i class="fa-brands fa-paypal fa-2xl"></i>
+                        <i class="fa-brands fa-cc-mastercard fa-2xl"></i>
+                        <i class="fa-solid fa-credit-card fa-2xl"></i>
+                        <i class="fa-brands fa-google-pay fa-2xl"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
