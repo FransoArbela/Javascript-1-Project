@@ -556,7 +556,7 @@ hr {
     border-radius: 5px;
     text-align: center;
     position: relative;
-
+    width: 100%;
 }
 
 /* Close button styling */
@@ -573,8 +573,59 @@ hr {
     overflow-y: auto;
     overflow-x: hidden;
     width: 100%;
-    background-color: gray;
 }
+
+.cart-item {
+    display: flex;
+    margin: 1rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.149);
+    padding: 1rem;
+}
+
+.cart-item .item-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.item-details h4 {
+    text-align: left;
+    margin-bottom: 0.5rem;
+}
+
+.remove-this-item {
+    border: none;
+    cursor: pointer;
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: white;
+    transition: all ease-in-out 0.2s;
+}
+
+.remove-this-item:hover {
+    background-color: rgb(215, 215, 215);
+}
+
+#go-to-checkout-btn {
+    width: 10rem;
+    height: 2.5rem;
+    background-color: #278e59;
+    color: aliceblue;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease-in-out;
+    margin-top: 1rem;
+    border-radius: 0;
+
+}
+
+#go-to-checkout-btn:hover {
+    background-color: #0d4553;
+    box-shadow: 5px 5px 18px -6px rgba(166, 166, 166, 0.89);
+}
+
+/*  */
 
 .main-body {
     width: 100%;
@@ -584,6 +635,8 @@ hr {
     align-items: center;
     margin-top: 5rem;
 }
+
+/* checkout */
 
 .checkout-container {
     max-width: 66vw;
@@ -655,7 +708,6 @@ h5 {
     padding: 0 1rem;
 }
 
-
 .checkout-details {
     background-color: #efeff0;
     width: 18.5rem;
@@ -691,6 +743,7 @@ h5 {
     cursor: pointer;
     border: none;
     transition: all 0.2s ease-in-out;
+    border-radius: 0;
 }
 
 .checkout-details #purchase-btn:hover {
@@ -710,4 +763,87 @@ h5 {
     font-weight: 200;
     font-size: 0.75rem;
     margin: 0.5rem 0;
+}
+
+/* checkout page */
+.confirmation-wrapper {
+    background-color: #007bff;
+    display: flex;
+    height: 40rem;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.412);
+}
+
+/* right half */
+
+.order-success {
+    background-color: #31c07e;
+    width: 50rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.success-backgr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.success-backgr img {
+    width: 20rem;
+}
+
+
+/* left half */
+.order-detail {
+    background-color: #f2f2f2;
+    width: 25rem;
+}
+
+.order-numb {
+    background-color: rgb(220, 220, 220);
+}
+
+.delivary-cost,
+.total-cost,
+.sub-total {
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-numb,
+.delivery-address,
+.billing-address,
+.contact-address,
+.order-summary {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.149);
+    padding: 0.6rem;
+}
+
+.delivery-address h4,
+.billing-address h4,
+.contact-address h4,
+.order-summary h4 {
+    margin-bottom: 1rem;
+}
+
+.delivary-cost h5,
+.total-cost h5,
+.sub-total h5 {
+    margin-bottom: 1rem;
+    font-size: .8rem;
+}
+
+.total-cost h5,
+.total-cost p {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.order-numb p {
+    font-weight: 800;
+    font-size: 1.3rem;
 }

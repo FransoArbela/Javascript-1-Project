@@ -48,7 +48,6 @@ function filterProducts(products) {
 }
 
 function createCards(products) {
-  // cardWrapper.innerHTML = '';  
 
   products.forEach(product => {
     const card = document.createElement('div');
@@ -86,6 +85,6 @@ function closePopup() {
     document.addEventListener("DOMContentLoaded", () => {
         updateBasketCount(); // Update basket count on page load
     });
-
-window.closePopup = closePopup; // Ensure closePopup is globally accessible
+// global function
+window.closePopup = closePopup; 
 window.basketPopUp = basketPopUp;

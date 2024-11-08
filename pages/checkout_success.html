@@ -44,10 +44,10 @@
                 <span class="close-btn" onclick="closePopup()">&times;</span>
                 <h1>Checkout</h1>
 
-                <!-- New container for displaying cart items -->
-                <div id="checkout-details"></div> <!-- This should be here -->
 
-                <button id="finalize-purchase">Finalize Purchase</button>
+                <div id="checkout-details"></div>
+
+                <button id="go-to-checkout-btn">Go to checkout</button>
             </div>
         </div>
     </header>
@@ -57,7 +57,52 @@
     </div>
 
     <div class="main-body">
-
+        <div class="confirmation-wrapper">
+            <!-- confirmation -->
+            <div class="order-success">
+                <div class="success-backgr">
+                    <img src="../img/order_confirmation_logo.png" alt="">
+                    <h4>THANK YOU!</h4>
+                    <h2>YOUR ORDER IS CONFIRMED</h2>
+                </div>
+            </div>
+            <!-- details -->
+            <div class="order-detail">
+                <div class="order-numb">
+                    <h4>ORDER DETAIL</h4>
+                    <p>#2637546</p>
+                </div>
+                <div class="delivery-address">
+                    <h4>DELEVERY ADDRESS</h4>
+                    <P>1234 Elm Street
+                        Springfield, IL 62701</P>
+                </div>
+                <div class="billing-address">
+                    <h4>BILLING ADDRESS</h4>
+                    <P>1234 Elm Street
+                        Springfield, IL 62701</P>
+                </div>
+                <div class="contact-address">
+                    <h4>CONTACT ADDRESS</h4>
+                    <P>email@company.com</P>
+                    <p>+1 235 235 235</p>
+                </div>
+                <div class="order-summary">
+                    <div class="sub-total">
+                        <h5>Sub Total</h5>
+                        <p>123kr</p>
+                    </div>
+                    <div class="delivary-cost">
+                        <h5>Delivery</h5>
+                        <p>123kr</p>
+                    </div>
+                    <div class="total-cost">
+                        <h5>Total</h5>
+                        <p>246kr</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
