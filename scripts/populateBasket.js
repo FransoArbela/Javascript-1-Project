@@ -1,7 +1,8 @@
+const goToCheckoutBtn = document.querySelector('.go-to-checkout-btn');
+
 function populateBasket() {
     const basket = JSON.parse(localStorage.getItem('basket')) || [];
     const checkoutDetails = document.getElementById('checkout-details');
-    const goToCheckoutBtn = document.getElementById('go-to-checkout-btn');
     checkoutDetails.innerHTML = ''; 
 
 if (basket.length === 0) {
@@ -54,18 +55,44 @@ function removeItemFromBasket(index) {
     updateBasketCount();  
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    const goToCheckoutBtn = document.getElementById('go-to-checkout-btn');
-    
-    if (goToCheckoutBtn) {
-        goToCheckoutBtn.addEventListener('click', function() {
-            alert('Thank you for your purchase!');
-            localStorage.removeItem('basket');  
-            populateBasket(); 
-            updateBasketCount();
-            closePopup();
-        });
-    }
+const openBasket = document.querySelector('#basket-pop-up');
+openBasket.addEventListener('click', function() {
+    document.getElementById("popup").style.display = "flex";
+    populateBasket(); 
 });
 
+function updateBasketCount() {
+  const basket = JSON.parse(localStorage.getItem('basket')) || [];
+  const totalItems = basket.reduce((total, item) => total + item.quantity, 0);
+  const basketCountElement = document.getElementById('basket-count');
+  if (basketCountElement) {
+    basketCountElement.textContent = totalItems > 0 ? `(${totalItems})` : '';
+  }
+}
+
+
+goToCheckoutBtn.addEventListener('click', () => {
+    window.location.href = 'checkout.html';        
+});
+
+
+// special function to go to the checkout just for index.html
+function forMainIndex() {
+    window.location.href = 'pages/checkout.html';
+    closePopup()
+
+    }
+
+// close the basket pop up
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    updateBasketCount();
+});
+
+window.closePopup = closePopup;
+window.updateBasketCount = updateBasketCount;
 window.populateBasket = populateBasket;
+window.removeItemFromBasket = removeItemFromBasket;

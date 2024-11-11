@@ -7,6 +7,8 @@ const productFavorite = document.querySelector('.favorite');
 ////////////////////////////////////// Get Product ID from URL //////////////////////////////////////
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get('id');
+   
+
 let selectedSize = null;
 
 ////////////////////////////////////// Fetch and Display Product Details //////////////////////////////////////
@@ -62,9 +64,6 @@ function displayProductDetails(productData) {
         <h4>Size:</h4>
         <p id="size-btn-placeholder"></p>
       </div>
-      <div class="colors">
-        <h4>Colors:</h4>
-      </div>
       <div class="tags">
         <h4>Tags: ${productData.gender}</h4>
       </div>
@@ -96,6 +95,7 @@ function createAddToCartButton(productData) {
   addToCartBtn.classList.add('add-to-cart', 'add-to-basket');
   addToCartBtn.innerHTML = '<i class="fa-solid fa-basket-shopping" style="color: #ededed;"></i> Add to cart';
 
+
   addToCartBtn.addEventListener('click', () => {
     if (!selectedSize) {
       alert('Please select a size');
@@ -115,6 +115,7 @@ function createAddToCartButton(productData) {
         title: productData.title,
         price: productData.price,
         size: selectedSize,
+        color: productData.baseColor,
         quantity: 1
       });
     }
@@ -126,26 +127,11 @@ function createAddToCartButton(productData) {
   document.querySelector('#add-to-cart-btn-placeholder').appendChild(addToCartBtn);
 }
 
-////////////////////////////////////// Update Cart Icon Count //////////////////////////////////////
-function updateBasketCount() {
-  const basket = JSON.parse(localStorage.getItem('basket')) || [];
-  const totalItems = basket.reduce((total, item) => total + item.quantity, 0);
-  const basketCountElement = document.getElementById('basket-count');
-  if (basketCountElement) {
-    basketCountElement.textContent = totalItems > 0 ? `(${totalItems})` : '';
-  }
-}
 
 ////////////////////////////////////// Initialize Page //////////////////////////////////////
+
 document.addEventListener("DOMContentLoaded", () => {
   fetchProductDetails(productId);
-  updateBasketCount();
 });
 
-////////////////////////////////////// Close Popup //////////////////////////////////////
-function closePopup() {
-  document.getElementById("popup").style.display = "none";
-}
 
-window.updateBasketCount = updateBasketCount;
-window.closePopup = closePopup;

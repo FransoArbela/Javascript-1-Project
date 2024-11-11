@@ -586,6 +586,7 @@ hr {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
 }
 
 .item-details h4 {
@@ -606,7 +607,7 @@ hr {
     background-color: rgb(215, 215, 215);
 }
 
-#go-to-checkout-btn {
+.go-to-checkout-btn-style {
     width: 10rem;
     height: 2.5rem;
     background-color: #278e59;
@@ -620,7 +621,7 @@ hr {
 
 }
 
-#go-to-checkout-btn:hover {
+.go-to-checkout-btn-style:hover {
     background-color: #0d4553;
     box-shadow: 5px 5px 18px -6px rgba(166, 166, 166, 0.89);
 }
@@ -662,7 +663,7 @@ hr {
     width: 6.25rem;
 }
 
-.quanitity-x-wrapper {
+.quantity-x-wrapper {
     width: 13rem;
     display: flex;
     justify-content: flex-end;
@@ -683,7 +684,7 @@ h5 {
     margin: 0.5rem 0;
 }
 
-#chout-quantity {
+.quantity-selector {
     width: 5rem;
     height: 2.5rem;
     border: solid 1px black;
@@ -691,7 +692,7 @@ h5 {
     cursor: pointer;
 }
 
-#close {
+.remove-btn {
     width: 2.5rem;
     height: 2rem;
     background-color: white;
@@ -699,7 +700,7 @@ h5 {
     border: solid 0px rgba(0, 0, 0, 0);
 }
 
-#close:hover {
+.remove-btn:hover {
     background-color: #e0e0e0;
 }
 

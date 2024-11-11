@@ -1,4 +1,3 @@
-const cardWrapper = document.querySelector('.card-wrapper');
 
 async function deFetch() {
   const response = await fetch('https://v2.api.noroff.dev/rainy-days');
@@ -48,9 +47,15 @@ function filterProducts(products) {
 }
 
 function createCards(products) {
+  const cardWrapper = document.querySelector('.card-wrapper');
+
+
+  cardWrapper.innerHTML = '';
+
 
   products.forEach(product => {
     const card = document.createElement('div');
+
     card.className = 'card';
     card.innerHTML = `
       <img class="card-img" src="${product.image.url}" alt="${product.image.alt}">
@@ -83,7 +88,7 @@ function closePopup() {
 }
 
     document.addEventListener("DOMContentLoaded", () => {
-        updateBasketCount(); // Update basket count on page load
+        updateBasketCount(); 
     });
 // global function
 window.closePopup = closePopup; 
