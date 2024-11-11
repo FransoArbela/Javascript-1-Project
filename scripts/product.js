@@ -71,7 +71,7 @@ function displayProductDetails(productData) {
       <div id="add-to-cart-btn-placeholder"></div>
       
   `;
-  pagePath.innerHTML = `Home /  ${productData.title}`;
+  pagePath.innerHTML = `Home > ${productData.title}`;
   createAddToCartButton(productData);
 }
 
