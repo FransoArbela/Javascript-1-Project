@@ -20,7 +20,6 @@
         <menu>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="pages/contact.html">Contact & visit</a></li>
                 <li>
                     <div id="basket-icon">
                         <a id="basket-pop-up">
@@ -32,26 +31,22 @@
             </ul>
         </menu>
 
-
         <div id="popup" class="checkout-basket">
             <div class="popup-content">
                 <span class="close-btn" onclick="closePopup()">&times;</span>
                 <h1>Checkout</h1>
 
-
                 <div id="checkout-details"></div>
 
                 <button onclick="forMainIndex()" class="go-to-checkout-btn-style">Go to checkout</button>
-                <button class="go-to-checkout-btn" style=" display: none;">Go to checkout</button>
+                <button class="go-to-checkout-btn" style=" display: none;"></button>
             </div>
         </div>
 
     </header>
 
     <div class="grid_layout">
-
-        <div class="filter">
-
+        <aside class="filter">
             <ul id="filter-list">
                 <li>
                     <input type="radio" name="filter" id="all-products" class="filter-item" checked>
@@ -70,12 +65,10 @@
                     <label for="onSale-products">On Sale Products</label>
                 </li>
             </ul>
-        </div>
-
+        </aside>
+    
         <div class="card-wrapper"></div>
-
     </div>
-</body>
-
-
-</html>
+    </body>
+    
+    </html>

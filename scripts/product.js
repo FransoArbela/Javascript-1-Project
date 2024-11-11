@@ -1,49 +1,50 @@
-////////////////////////////////////// DOM Elements //////////////////////////////////////
+// DOM Elements
+const pagePath = document.querySelector('#page-path');
 const productContainer = document.querySelector('.product-container');
 const productPrice = document.querySelector('#price');
-const productColor = document.querySelector('.colors');
 const productFavorite = document.querySelector('.favorite');
 
-////////////////////////////////////// Get Product ID from URL //////////////////////////////////////
+
+
+// Get Product ID from URL
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get('id');
-   
 
 let selectedSize = null;
 
-////////////////////////////////////// Fetch and Display Product Details //////////////////////////////////////
+// Fetch and Display Product Details
 async function fetchProductDetails(productId) {
   if (!productId) {
-    console.error("No product ID found in URL");
+    console.error("No product ID in URL");
     return;
   }
 
   try {
     const response = await fetch(`https://v2.api.noroff.dev/rainy-days/${productId}`);
     if (!response.ok) throw new Error('Product not found');
-    const { data: productData } = await response.json(); // 
+    const { data: productData } = await response.json();
 
     displayProductDetails(productData);
     createSizeButtons(productData.sizes);
 
+
   } catch (error) {
-    console.error("Error fetching product details:", error);
+    console.error("Error fetching product:", error);
     productContainer.innerHTML = `<p>Product not found</p>`;
   }
 }
 
+// Display Product Details
 function displayProductDetails(productData) {
-  // Set product colors and favorite icon
-  const color = document.createElement('div');
-  color.id = 'color-balls';
-  color.style.backgroundColor = productData.baseColor || '#000'; // Fallback color
-  productColor.appendChild(color);
+
 
   const favoriteIcon = document.createElement('i');
   favoriteIcon.className = productData.favorite ? "fa-solid fa-heart fa-2xl" : "fa-regular fa-heart fa-2xl";
   productFavorite.appendChild(favoriteIcon);
 
-  // Display product price with discount if available
+
+
+  // Show price with discount if applicable
   const priceHTML = productData.onSale 
     ? `<span id="discounted">${productData.discountedPrice}€</span> <span class="original-price">(Discounted from <del>${productData.price}€</del>)</span>`
     : `€${productData.price}`;
@@ -68,12 +69,13 @@ function displayProductDetails(productData) {
         <h4>Tags: ${productData.gender}</h4>
       </div>
       <div id="add-to-cart-btn-placeholder"></div>
+      
   `;
-
+  pagePath.innerHTML = `Home /  ${productData.title}`;
   createAddToCartButton(productData);
 }
 
-////////////////////////////////////// Create Size Buttons //////////////////////////////////////
+// Create Size Buttons
 function createSizeButtons(sizes) {
   const sizeBtnPlaceholder = document.querySelector('#size-btn-placeholder');
   sizes.forEach(sizeValue => {
@@ -89,12 +91,11 @@ function createSizeButtons(sizes) {
   });
 }
 
-////////////////////////////////////// Add to Cart Button //////////////////////////////////////
+// Add to Cart Button
 function createAddToCartButton(productData) {
   const addToCartBtn = document.createElement('button');
   addToCartBtn.classList.add('add-to-cart', 'add-to-basket');
   addToCartBtn.innerHTML = '<i class="fa-solid fa-basket-shopping" style="color: #ededed;"></i> Add to cart';
-
 
   addToCartBtn.addEventListener('click', () => {
     if (!selectedSize) {
@@ -102,7 +103,7 @@ function createAddToCartButton(productData) {
       return;
     }
 
-    // Update basket with new or existing product
+    // Update or add product in basket
     let basket = JSON.parse(localStorage.getItem('basket')) || [];
     const existingProduct = basket.find(item => item.id === productData.id && item.size === selectedSize);
 
@@ -115,7 +116,6 @@ function createAddToCartButton(productData) {
         title: productData.title,
         price: productData.price,
         size: selectedSize,
-        color: productData.baseColor,
         quantity: 1
       });
     }
@@ -127,11 +127,7 @@ function createAddToCartButton(productData) {
   document.querySelector('#add-to-cart-btn-placeholder').appendChild(addToCartBtn);
 }
 
-
-////////////////////////////////////// Initialize Page //////////////////////////////////////
-
+// Initialize Page
 document.addEventListener("DOMContentLoaded", () => {
   fetchProductDetails(productId);
 });
-
-
